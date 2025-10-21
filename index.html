@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Studio Royale — Fotografia & Vídeo Profissional</title>
+  <meta name="description" content="Studio Royale — serviços profissionais de fotografia e produção de vídeo. Portfólio, catálogo, vendas e contato." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#070708; --card:#0f0f10; --muted:#9aa0a6; --accent:#ffd166; --glass: rgba(255,255,255,0.04);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#020203,#070708);color:#fff;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .wrap{max-width:1200px;margin:0 auto;padding:28px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#111,#222);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--accent)}
+    nav{display:flex;gap:12px;align-items:center}
+    .nav-link{padding:8px 12px;border-radius:9px;background:var(--glass);border:1px solid rgba(255,255,255,0.03);font-size:14px}
+    .btn-accent{background:var(--accent);color:#000;padding:10px 14px;border-radius:10px;border:none;cursor:pointer;font-weight:700}
+
+    /* hero */
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:center;margin-top:28px}
+    .hero h1{font-size:44px;margin:0;line-height:1}
+    .hero p{color:var(--muted);margin-top:10px;max-width:60ch}
+    .hero-cta{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+
+    /* sections */
+    section{margin-top:56px}
+    h2{font-size:28px;margin:0 0 12px 0}
+    p.lead{color:var(--muted);margin:0 0 18px 0}
+
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+
+    .card{background:var(--card);border-radius:12px;padding:16px;border:1px solid rgba(255,255,255,0.03)}
+    .card img{border-radius:8px;height:200px;object-fit:cover;margin-bottom:12px}
+    .card h3{margin:0 0 8px 0}
+    .muted{color:var(--muted);font-size:14px}
+
+    /* catálogo / produto */
+    .catalog-item{display:flex;gap:12px;align-items:center}
+    .catalog-item img{width:120px;height:80px;object-fit:cover;border-radius:8px}
+
+    /* contact form */
+    form{display:flex;flex-direction:column;gap:12px;max-width:640px}
+    input,textarea,select{padding:12px;border-radius:10px;border:none;background:rgba(255,255,255,0.03);color:#fff}
+    button[type="submit"]{padding:12px;border-radius:10px;border:none;background:var(--accent);color:#000;font-weight:700;cursor:pointer}
+
+    /* footer */
+    footer{margin-top:60px;padding:28px 0;border-top:1px solid rgba(255,255,255,0.03);color:var(--muted)}
+
+    /* sticky social */
+    .sticky-social{position:fixed;right:18px;bottom:18px;display:flex;flex-direction:column;gap:10px;z-index:80}
+    .ss-btn{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#0f0f10,#131313);border:1px solid rgba(255,255,255,0.04);cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,0.5)}
+    .ss-ig{background:linear-gradient(45deg,#feda75,#d62976,#8134af,#515bd4);color:#fff}
+    .ss-wa{background:#25D366;color:#000}
+
+    /* modal/lightbox simple */
+    .overlay{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:none;align-items:center;justify-content:center;z-index:90}
+    .lightbox{max-width:1100px;width:95%;background:transparent;border-radius:12px;padding:12px}
+    .lightbox img{width:100%;height:auto;border-radius:8px}
+
+    /* responsive */
+    @media(max-width:980px){ .hero{grid-template-columns:1fr} }
+    @media(max-width:620px){ header{flex-direction:column;align-items:flex-start;gap:12px} .logo{width:48px;height:48px} .hero h1{font-size:32px} .sticky-social{right:12px;bottom:12px} }
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">SR</div>
+        <div>
+          <div style="font-weight:800">Studio Royale</div>
+          <div class="muted" style="font-size:13px">Fotografia • Vídeo • Catálogo</div>
+        </div>
+      </div>
+
+      <nav aria-label="Menu principal">
+        <a class="nav-link" href="#servicos">Serviços</a>
+        <a class="nav-link" href="#portfolio">Portfólio</a>
+        <a class="nav-link" href="#catalogo">Catálogo</a>
+        <a class="nav-link" href="#sobre">Sobre</a>
+        <a class="nav-link" href="#contato">Contato</a>
+        <a class="btn-accent" href="#contato">Agende</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" aria-label="Introdução">
+      <div>
+        <h1>Fotografia e vídeo profissional — contamos sua história em imagem.</h1>
+        <p class="lead">Estúdio especializado em retratos, casamentos, campanhas e conteúdo audiovisual para marcas. Impressões, álbuns e arquivos digitais disponíveis no catálogo.</p>
+        <div class="hero-cta">
+          <a class="btn-accent" href="#portfolio">Ver Portfólio</a>
+          <a class="nav-link" href="#catalogo">Ver Catálogo</a>
+          <a class="nav-link" href="#contato">Solicitar orçamento</a>
+        </div>
+      </div>
+
+      <aside style="background:linear-gradient(180deg,#070707,#0c0c0c);border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.03);">
+        <div style="font-weight:800;font-size:18px">Serviço em destaque</div>
+        <p class="muted" style="margin-top:8px">Ensaios de marca — pacote completo (produção, direção criativa, pós-produção).</p>
+        <img src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde?q=80&w=1200&auto=format&fit=crop" alt="Destaque" style="border-radius:8px;margin-top:12px;height:180px;object-fit:cover">
+        <div style="display:flex;gap:10px;margin-top:12px">
+          <a class="btn-accent" href="#contato">Peça um orçamento</a>
+          <a class="nav-link" href="#portfolio">Ver trabalhos</a>
+        </div>
+      </aside>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section id="servicos" aria-labelledby="servicosTitle">
+      <h2 id="servicosTitle">Serviços</h2>
+      <p class="lead">Atuamos em todas as etapas de produção visual — do planejamento até a entrega final.</p>
+      <div class="grid" role="list">
+        <div class="card" role="listitem">
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop" alt="Ensaios">
+          <h3>Ensaios Fotográficos</h3>
+          <p class="muted">Retratos, editoriais, moda e eventos. Direção de arte e pós-produção inclusas.</p>
+        </div>
+        <div class="card" role="listitem">
+          <img src="https://images.unsplash.com/photo-1505455184864-6e6a8f4f7c28?q=80&w=1200&auto=format&fit=crop" alt="Vídeo">
+          <h3>Produção de Vídeo</h3>
+          <p class="muted">Vídeos institucionais, comerciais, clipes e conteúdo para redes sociais com equipe profissional.</p>
+        </div>
+        <div class="card" role="listitem">
+          <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=1200&auto=format&fit=crop" alt="Pós">
+          <h3>Edição e Pós-produção</h3>
+          <p class="muted">Color grading, montagem, correção fina e masterização de arquivos para entrega em todos os formatos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFÓLIO -->
+    <section id="portfolio" aria-labelledby="portfolioTitle">
+      <h2 id="portfolioTitle">Portfólio</h2>
+      <p class="lead">Seleção de trabalhos recentes — clique para ampliar.</p>
+      <div class="grid" id="portfolioGrid">
+        <!-- cards com data-attrs para lightbox -->
+        <div class="card" role="article" data-img="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1600&auto=format&fit=crop">
+          <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop" alt="Portfólio 1">
+          <h3>Editorial — Moda</h3>
+          <p class="muted">Direção criativa e fotografia de moda para marca X.</p>
+        </div>
+
+        <div class="card" role="article" data-img="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1600&auto=format&fit=crop">
+          <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1200&auto=format&fit=crop" alt="Portfólio 2">
+          <h3>Casamento — Lifestyle</h3>
+          <p class="muted">Cobertura documental com edição cinematográfica.</p>
+        </div>
+
+        <div class="card" role="article" data-img="https://images.unsplash.com/photo-1534126511673-b6899657816a?q=80&w=1600&auto=format&fit=crop">
+          <img src="https://images.unsplash.com/photo-1534126511673-b6899657816a?q=80&w=1200&auto=format&fit=crop" alt="Portfólio 3">
+          <h3>Campanha Institucional</h3>
+          <p class="muted">Produção completa: pré, produção e pós.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATÁLOGO -->
+<section id="catalogo" aria-labelledby="catalogoTitle">
+  <h2 id="catalogoTitle">Catálogo</h2>
+  <p class="lead">Produtos e serviços que oferecemos para venda direta.</p>
+
+  <div class="grid">
+    <div class="card catalog-item">
+      <div class="catalog-slideshow" data-images='[
+        "https://images.unsplash.com/photo-1504198453319-5ce911bafcde?q=80&w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=80&w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1511765224389-37f0e77cf0eb?q=80&w=800&auto=format&fit=crop"
+      ]'></div>
+      <div>
+        <h3>Impressão Fine Art — 30x45</h3>
+        <p class="muted">Papel algodão 310gsm, pigmento archival. Ideal para galerias e colecionadores.</p>
+        <div style="margin-top:10px;font-weight:800;color:var(--accent)">R$ 220,00</div>
+      </div>
+    </div>
+
+    <div class="card catalog-item">
+      <div class="catalog-slideshow" data-images='[
+        "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=80&w=800&auto=format&fit=crop"
+      ]'></div>
+      <div>
+        <h3>Álbum Premium 30x30</h3>
+        <p class="muted">Capa em couro, 30 páginas, impressão profissional, embalagem especial.</p>
+        <div style="margin-top:10px;font-weight:800;color:var(--accent)">R$ 690,00</div>
+      </div>
+    </div>
+
+    <div class="card catalog-item">
+      <div class="catalog-slideshow" data-images='[
+        "https://images.unsplash.com/photo-1499084732479-de2c02d45fc4?q=80&w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1504198453319-5ce911bafcde?q=80&w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1503264116251-35a269479413?q=80&w=800&auto=format&fit=crop"
+      ]'></div>
+      <div>
+        <h3>Arquivo Digital HD</h3>
+        <p class="muted">Entrega por link privado — fotos tratadas em alta resolução.</p>
+        <div style="margin-top:10px;font-weight:800;color:var(--accent)">R$ 120,00 / pacote</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- SOBRE -->
+    <section id="sobre" aria-labelledby="sobreTitle">
+      <h2 id="sobreTitle">Sobre</h2>
+      <p class="lead">Equipe experiente e equipamentos de ponta para garantir resultado técnico e estético em cada projeto.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Nossa Missão</h3>
+          <p class="muted">Contar histórias através de imagens que emocionem e comuniquem com clareza.</p>
+        </div>
+        <div class="card">
+          <h3>Equipe</h3>
+          <p class="muted">Fotógrafos, diretores de fotografia, editores e produtores — todos com experiência no mercado.</p>
+        </div>
+        <div class="card">
+          <h3>Atuação</h3>
+          <p class="muted">Atendemos clientes em todo o Brasil e realizamos projetos internacionais mediante demanda.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" aria-labelledby="contatoTitle">
+      <h2 id="contatoTitle">Contato</h2>
+      <p class="lead">Solicite orçamento, agende uma reunião ou envie material para avaliação.</p>
+
+      <form id="contactForm" aria-label="Formulário de contato">
+        <input id="name" name="name" type="text" placeholder="Seu nome" required>
+        <input id="email" name="email" type="email" placeholder="Seu e-mail" required>
+        <input id="tel" name="tel" type="tel" placeholder="Telefone (opcional)">
+        <select id="service" name="service" aria-label="Serviço">
+          <option value="">Serviço de interesse</option>
+          <option>Ensaios Fotográficos</option>
+          <option>Produção de Vídeo</option>
+          <option>Impressões / Álbuns</option>
+          <option>Outros</option>
+        </select>
+        <textarea id="message" name="message" placeholder="Mensagem / briefing" rows="6"></textarea>
+        <button type="submit">Enviar mensagem</button>
+      </form>
+    </section>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+        <div>
+          <div style="font-weight:800">Studio Royale</div>
+          <div class="muted" style="max-width:420px">Av. Paulista, 1234 — São Paulo<br>contato@studioroyale.com.br — +55 11 99999-9999</div>
+        </div>
+        <div class="muted">© <span id="year"></span> Studio Royale. Todos os direitos reservados.</div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- sticky social buttons -->
+  <div class="sticky-social" aria-hidden="false">
+    <!-- substituir href pelo seu perfil -->
+    <a class="ss-btn ss-ig" id="btnIG" title="Instagram" href="https://instagram.com/blancstudioorg" target="_blank" rel="noopener">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5z" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 6.5h.01" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <!-- WhatsApp: substitua o phone pelo seu número no formato internacional sem sinais, ex: 5511999999999 -->
+    <a class="ss-btn ss-wa" id="btnWA" title="WhatsApp" href="https://wa.me/5531997934176?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento" target="_blank" rel="noopener">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 12.07a9 9 0 10-3.1 6.36L21 21l-1.57-4.57A8.96 8.96 0 0021 12.07z" stroke="#000" stroke-width="0.6"/><path d="M16.5 12.7c-.2-.1-1.1-.6-1.3-.6s-.3 0-.4.1c-.1 0-.6.3-.7.4s-.3.2-.6.1c-.2-.1-1-.4-1.9-1.2-.7-.6-1.1-1.4-1.2-1.6-.1-.3 0-.5.1-.7.1-.2.1-.4 0-.6-.1-.2-.4-.5-.6-.8-.2-.3-.5-.2-.7-.1-.2.2-.6.6-.9 1.3-.3.7-.4 1.3-.4 1.6s.2.6.6.9c.4.3 1 .6 1.6 1.1.6.5 1.5 1.1 2.5 1.4 1 .4 1 .4 1.6.2.6-.2 1.1-.6 1.3-.8.2-.2.2-.4.1-.6-.1-.2-.3-.4-.5-.5z" fill="#000"/></svg>
+    </a>
+  </div>
+
+  <!-- simple lightbox overlay -->
+  <div id="overlay" class="overlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="lightbox" id="lightbox">
+      <img src="" alt="Ampliação">
+    </div>
+  </div>
+
+  <script>
+    // smooth scroll for menu anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const href = a.getAttribute('href');
+        if(href === '#' || href === '') return;
+        const el = document.querySelector(href);
+        if(el){
+          e.preventDefault();
+          el.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    });
+
+    // portfolio lightbox
+    const overlay = document.getElementById('overlay');
+    const lightboxImg = document.querySelector('#lightbox img');
+    document.querySelectorAll('#portfolioGrid .card').forEach(card=>{
+      card.style.cursor = 'zoom-in';
+      card.addEventListener('click', ()=>{
+        const src = card.getAttribute('data-img') || card.querySelector('img')?.src;
+        if(!src) return;
+        lightboxImg.src = src;
+        overlay.style.display = 'flex';
+        overlay.setAttribute('aria-hidden','false');
+      });
+    });
+    overlay.addEventListener('click', (e)=> {
+      if(e.target === overlay || e.target === lightboxImg) {
+        overlay.style.display = 'none';
+        overlay.setAttribute('aria-hidden','true');
+        lightboxImg.src = '';
+      }
+    });
+
+    // contact form (simulado) - envia via fetch para um endpoint real ou e-mail service
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const data = {
+        name: form.name.value.trim(),
+        email: form.email.value.trim(),
+        tel: form.tel.value.trim(),
+        service: form.service.value,
+        message: form.message.value.trim()
+      };
+      // validação simples
+      if(!data.name || !data.email){ alert('Por favor preencha nome e e-mail.'); return; }
+      // AQUI: substitua por integração real (ex: fetch('/api/contact', {method:'POST', body:JSON.stringify(data)}))
+      alert('Mensagem enviada (simulado). Iremos responder em breve.');
+      form.reset();
+    });
+
+    // set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Accessibility: keyboard close lightbox (Esc)
+    document.addEventListener('keydown', (e)=> {
+      if(e.key === 'Escape' && overlay.style.display === 'flex'){
+        overlay.style.display = 'none';
+        overlay.setAttribute('aria-hidden','true');
+        lightboxImg.src = '';
+      }
+    });
+
+    // Replace placeholder links: if user hasn't edited, warn in console
+    const ig = document.getElementById('btnIG').href;
+    const wa = document.getElementById('btnWA').href;
+    if(ig.includes('seu_usuario')) console.info('Troque o href do botão Instagram pelo seu usuário (ex: https://instagram.com/blancstudioorg).');
+    if(wa.includes('5531997934176')) console.info('Troque o número do WhatsApp no link (formato internacional sem sinais).');
+
+  </script>
+</body>
+</html>
